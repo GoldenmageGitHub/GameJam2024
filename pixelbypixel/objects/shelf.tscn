@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbjyuvt47krj2"]
+
+[ext_resource type="Material" uid="uid://cgju6xqexnx3h" path="res://textures/wood_procedural.tres" id="1_6mtlh"]
+
+[node name="shelf" type="CSGCombiner3D"]
+use_collision = true
+
+[node name="left_wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51, 1.05, 0)
+size = Vector3(0.02, 2.1, 0.5)
+material = ExtResource("1_6mtlh")
+
+[node name="right_wall2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51, 1.05, 0)
+size = Vector3(0.02, 2.1, 0.5)
+material = ExtResource("1_6mtlh")
+
+[node name="level1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
+size = Vector3(1, 0.02, 0.5)
+material = ExtResource("1_6mtlh")
+
+[node name="level2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54, 0)
+size = Vector3(1, 0.02, 0.5)
+material = ExtResource("1_6mtlh")
+
+[node name="level3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04, 0)
+size = Vector3(1, 0.02, 0.5)
+material = ExtResource("1_6mtlh")
+
+[node name="level4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54, 0)
+size = Vector3(1, 0.02, 0.5)
+material = ExtResource("1_6mtlh")
+
+[node name="level5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.04, 0)
+size = Vector3(1, 0.02, 0.5)
+material = ExtResource("1_6mtlh")
