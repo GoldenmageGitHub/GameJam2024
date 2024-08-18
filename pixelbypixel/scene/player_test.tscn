@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/scaling_camera_3d.gd" id="2_3xl01"]
 [ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://textures/cat/cat_animation.tres" id="2_cqe55"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yapnd"]
-size = Vector3(0.329132, 0.415283, 0.0189209)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxvle"]
+size = Vector3(0.462646, 0.655884, 0.144531)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_u4f41"]
 dof_blur_far_enabled = true
@@ -19,21 +19,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550172, 0)
 script = ExtResource("1_ilvjk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0269623, -0.265754, 6.10352e-05)
-shape = SubResource("BoxShape3D_yapnd")
-
-[node name="Camera3D" type="Camera3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 0.997193, 0.0748743, 0, -0.0748743, 0.997193, -0.0269623, 0.281393, 1.60433)
-attributes = SubResource("CameraAttributesPractical_u4f41")
-fov = 37.8493
-script = ExtResource("2_3xl01")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0269623, -0.222719, 6.10352e-05)
+shape = SubResource("BoxShape3D_kxvle")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0269623, -0.0500973, -6.10352e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0269623, -0.022013, -6.10352e-05)
 shaded = true
 alpha_cut = 2
 texture_filter = 0
 render_priority = 5
 sprite_frames = ExtResource("2_cqe55")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
+frame_progress = 0.188976
+
+[node name="Camera3D" type="Camera3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 0.997193, 0.0748743, 0, -0.0748743, 0.997193, -0.0269623, 0.342367, 1.60433)
+attributes = SubResource("CameraAttributesPractical_u4f41")
+fov = 37.8493
+script = ExtResource("2_3xl01")
