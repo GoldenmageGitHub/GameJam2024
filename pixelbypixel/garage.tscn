@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://kx8v4g6j33lp"]
+
+[ext_resource type="PackedScene" uid="uid://b6hsgiq6g7u84" path="res://player_test.tscn" id="1_ma37i"]
+[ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://textures/cat/cat_animation.tres" id="1_vsj6c"]
+[ext_resource type="PackedScene" uid="uid://cuj1bwhj2ejnu" path="res://objects/box.tscn" id="3_2356p"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tu3co"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_36h4h"]
+
+[sub_resource type="Gradient" id="Gradient_q72xl"]
+colors = PackedColorArray(0.201527, 0.201527, 0.201527, 1, 0.542982, 0.542982, 0.542982, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_aaycq"]
+noise_type = 2
+frequency = 0.303
+cellular_distance_function = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4oib7"]
+width = 128
+height = 64
+color_ramp = SubResource("Gradient_q72xl")
+noise = SubResource("FastNoiseLite_aaycq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44ny6"]
+albedo_texture = SubResource("NoiseTexture2D_4oib7")
+texture_filter = 0
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_c05o1"]
+
+[node name="garage" type="Node3D"]
+
+[node name="player_test" parent="." instance=ExtResource("1_ma37i")]
+
+[node name="World Border" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000751309, 0)
+shape = SubResource("WorldBoundaryShape3D_tu3co")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Border"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_36h4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_44ny6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="World Border"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 1)
+shape = SubResource("WorldBoundaryShape3D_c05o1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="World Border"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
+shape = SubResource("WorldBoundaryShape3D_c05o1")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="World Border"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_c05o1")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="World Border"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -2, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_c05o1")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.755133, 0.655572, 0, -0.655572, 0.755133, 0, 2.16248, 1.43278)
+light_energy = 3.0
+shadow_enabled = true
+spot_range = 10.65
+spot_angle_attenuation = 0.307786
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Box" parent="Objects" instance=ExtResource("3_2356p")]
+
+[node name="Box2" parent="Objects" instance=ExtResource("3_2356p")]
+transform = Transform3D(0.961064, 0, -0.276325, 0, 1, 0, 0.276325, 0, 0.961064, 1.22887, 0.292294, -0.0908231)
+
+[node name="Box3" parent="Objects" instance=ExtResource("3_2356p")]
+transform = Transform3D(0.595821, 0, 0.095726, 0, 0.464127, 0, -0.147616, 0, 0.386377, 1.23834, 0.686937, -0.132843)
+
+[node name="Box4" parent="Objects" instance=ExtResource("3_2356p")]
+transform = Transform3D(0.363968, 0, 0.058476, 0, 0.121888, 0, -0.0901742, 0, 0.236025, 0.0288887, 0.0675321, 0.495242)
+
+[node name="other cat" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379147, -0.436618)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="other cat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110407, -0.00113237, 0.0815306)
+depth = 0.05
+polygon = PackedVector2Array(-0.243973, -0.0697063, -0.112375, -0.047356, 0.171591, 0.0178067, 0.351882, -0.0444375, 0.404873, -0.242745, -0.399898, -0.246225)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="other cat/CollisionPolygon3D"]
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("1_vsj6c")
+animation = &"sleep"
+frame_progress = 0.104531
+
+[connection signal="ready" from="other cat/CollisionPolygon3D/AnimatedSprite3D" to="other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]
