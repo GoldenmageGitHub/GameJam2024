@@ -93,6 +93,6 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_vsj6c")
 animation = &"sleep"
-frame_progress = 0.696763
+frame_progress = 0.104531
 
 [connection signal="ready" from="other cat/CollisionPolygon3D/AnimatedSprite3D" to="other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]
