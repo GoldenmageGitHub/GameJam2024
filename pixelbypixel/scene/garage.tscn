@@ -43,6 +43,11 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_36h4h")
 surface_material_override/0 = SubResource("StandardMaterial3D_44ny6")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="World Border"]
+transform = Transform3D(2, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -1)
+mesh = SubResource("PlaneMesh_36h4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_44ny6")
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="World Border"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 1)
 shape = SubResource("WorldBoundaryShape3D_c05o1")
@@ -63,6 +68,7 @@ shape = SubResource("WorldBoundaryShape3D_c05o1")
 transform = Transform3D(1, 0, 0, 0, 0.755133, 0.655572, 0, -0.655572, 0.755133, 0, 2.16248, 1.43278)
 light_energy = 3.0
 shadow_enabled = true
+shadow_bias = 0.005
 spot_range = 10.65
 spot_angle_attenuation = 0.307786
 
@@ -93,7 +99,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("3_qck3b")
 animation = &"sleep"
-frame_progress = 0.551568
+frame_progress = 0.537846
 
 [node name="other cat2" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15566, 0.861507, -0.248694)
@@ -109,7 +115,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("3_qck3b")
 animation = &"idle"
-frame_progress = 0.593319
+frame_progress = 0.579598
 
 [connection signal="ready" from="other cat/CollisionPolygon3D/AnimatedSprite3D" to="other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]
 [connection signal="ready" from="other cat2/CollisionPolygon3D/AnimatedSprite3D" to="other cat2/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["idle"]]
