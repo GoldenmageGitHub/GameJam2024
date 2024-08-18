@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://1xs203m1grmn"]
+[gd_scene load_steps=14 format=3 uid="uid://1xs203m1grmn"]
 
 [ext_resource type="PackedScene" uid="uid://b6hsgiq6g7u84" path="res://scene/player_test.tscn" id="1_yckwx"]
 [ext_resource type="PackedScene" uid="uid://cuj1bwhj2ejnu" path="res://objects/box.tscn" id="2_6rtw2"]
 [ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://textures/cat/cat_animation.tres" id="3_eamxg"]
 [ext_resource type="PackedScene" uid="uid://dhcmrq8087igm" path="res://objects/table.tscn" id="4_a8l5c"]
 [ext_resource type="PackedScene" uid="uid://cbjyuvt47krj2" path="res://objects/shelf.tscn" id="4_qrai1"]
+[ext_resource type="PackedScene" uid="uid://brcnxrl4du4rt" path="res://objects/chair.tscn" id="6_2u4oq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_36h4h"]
 
@@ -33,7 +34,7 @@ texture_filter = 0
 [node name="garage" type="Node3D"]
 
 [node name="player_test" parent="." instance=ExtResource("1_yckwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.990112, 0.550172, -0.262329)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.990112, 0.550172, 0.125488)
 
 [node name="World Border" type="StaticBody3D" parent="."]
 
@@ -108,7 +109,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("3_eamxg")
 animation = &"sleep"
-frame_progress = 0.32041
+frame_progress = 0.360075
 
 [node name="other cat2" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15566, 0.861507, -0.248694)
@@ -124,7 +125,10 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("3_eamxg")
 animation = &"idle"
-frame_progress = 0.362167
+frame_progress = 0.401833
+
+[node name="chair" parent="." instance=ExtResource("6_2u4oq")]
+transform = Transform3D(0.463435, 0, -0.886131, 0, 1, 0, 0.886131, 0, 0.463435, 0.829354, 0, -0.98226)
 
 [connection signal="ready" from="other cat/CollisionPolygon3D/AnimatedSprite3D" to="other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]
 [connection signal="ready" from="other cat2/CollisionPolygon3D/AnimatedSprite3D" to="other cat2/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["idle"]]

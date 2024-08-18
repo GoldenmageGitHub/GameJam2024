@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://brcnxrl4du4rt"]
+
+[ext_resource type="Material" uid="uid://cgju6xqexnx3h" path="res://textures/wood_procedural.tres" id="1_sgtue"]
+
+[node name="chair" type="CSGCombiner3D"]
+use_collision = true
+
+[node name="leg1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225, 0.25, 0.225)
+size = Vector3(0.05, 0.5, 0.05)
+material = ExtResource("1_sgtue")
+
+[node name="leg2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225, 0.25, 0.225)
+size = Vector3(0.05, 0.5, 0.05)
+material = ExtResource("1_sgtue")
+
+[node name="leg3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225, 0.25, -0.225)
+size = Vector3(0.05, 0.5, 0.05)
+material = ExtResource("1_sgtue")
+
+[node name="leg4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225, 0.25, -0.225)
+size = Vector3(0.05, 0.5, 0.05)
+material = ExtResource("1_sgtue")
+
+[node name="seat" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51, 0)
+size = Vector3(0.5, 0.02, 0.5)
+material = ExtResource("1_sgtue")
+
+[node name="backrest" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77, -0.24)
+size = Vector3(0.5, 0.5, 0.02)
+material = ExtResource("1_sgtue")
