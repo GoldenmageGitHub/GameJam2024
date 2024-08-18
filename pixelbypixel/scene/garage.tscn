@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://kx8v4g6j33lp"]
 
-[ext_resource type="PackedScene" uid="uid://b6hsgiq6g7u84" path="res://player_test.tscn" id="1_ma37i"]
-[ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://textures/cat/cat_animation.tres" id="1_vsj6c"]
-[ext_resource type="PackedScene" uid="uid://cuj1bwhj2ejnu" path="res://objects/box.tscn" id="3_2356p"]
+[ext_resource type="PackedScene" uid="uid://b6hsgiq6g7u84" path="res://scene/player_test.tscn" id="1_pqegx"]
+[ext_resource type="PackedScene" uid="uid://cuj1bwhj2ejnu" path="res://objects/box.tscn" id="2_6gy5y"]
+[ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://textures/cat/cat_animation.tres" id="3_qck3b"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tu3co"]
 
@@ -30,7 +30,7 @@ texture_filter = 0
 
 [node name="garage" type="Node3D"]
 
-[node name="player_test" parent="." instance=ExtResource("1_ma37i")]
+[node name="player_test" parent="." instance=ExtResource("1_pqegx")]
 
 [node name="World Border" type="StaticBody3D" parent="."]
 
@@ -68,15 +68,15 @@ spot_angle_attenuation = 0.307786
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="Box" parent="Objects" instance=ExtResource("3_2356p")]
+[node name="Box" parent="Objects" instance=ExtResource("2_6gy5y")]
 
-[node name="Box2" parent="Objects" instance=ExtResource("3_2356p")]
+[node name="Box2" parent="Objects" instance=ExtResource("2_6gy5y")]
 transform = Transform3D(0.961064, 0, -0.276325, 0, 1, 0, 0.276325, 0, 0.961064, 1.22887, 0.292294, -0.0908231)
 
-[node name="Box3" parent="Objects" instance=ExtResource("3_2356p")]
+[node name="Box3" parent="Objects" instance=ExtResource("2_6gy5y")]
 transform = Transform3D(0.595821, 0, 0.095726, 0, 0.464127, 0, -0.147616, 0, 0.386377, 1.23834, 0.686937, -0.132843)
 
-[node name="Box4" parent="Objects" instance=ExtResource("3_2356p")]
+[node name="Box4" parent="Objects" instance=ExtResource("2_6gy5y")]
 transform = Transform3D(0.363968, 0, 0.058476, 0, 0.121888, 0, -0.0901742, 0, 0.236025, 0.0288887, 0.0675321, 0.495242)
 
 [node name="other cat" type="RigidBody3D" parent="."]
@@ -91,8 +91,8 @@ polygon = PackedVector2Array(-0.243973, -0.0697063, -0.112375, -0.047356, 0.1715
 shaded = true
 alpha_cut = 2
 texture_filter = 0
-sprite_frames = ExtResource("1_vsj6c")
+sprite_frames = ExtResource("3_qck3b")
 animation = &"sleep"
-frame_progress = 0.104531
+frame_progress = 0.92603
 
 [connection signal="ready" from="other cat/CollisionPolygon3D/AnimatedSprite3D" to="other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]
