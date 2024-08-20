@@ -4,6 +4,7 @@ extends CharacterBody3D
 
 @onready var sprite: AnimatedSprite3D = $CollisionShape3D/AnimatedSprite3D
 @onready var shape = $CollisionShape3D
+@onready var music: AudioStreamPlayer = %music
 
 const SPEED = 2.0
 const JUMP_VELOCITY = 3.5
@@ -44,8 +45,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			sprite.play("idle")
 	
-	for scale_factor in [1,2,4,8,16,32,64]:
+	for scale_index in [0,1,2,3,4,5,6,7]:
+		var scale_factor = pow(2, scale_index)
 		if Input.is_action_just_pressed("debug_scale_" + str(scale_factor)):
+			music.get_stream_playback().switch_to_clip(min(scale_index, 3))
 			create_tween().tween_property(shape, "scale", Vector3.ONE / scale_factor, 1)
 			break
 	

@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://1xs203m1grmn"]
+[gd_scene load_steps=16 format=3 uid="uid://1xs203m1grmn"]
 
+[ext_resource type="PackedScene" uid="uid://drchciuyt0qhb" path="res://music/music.tscn" id="1_jxd24"]
 [ext_resource type="PackedScene" uid="uid://b6hsgiq6g7u84" path="res://scene/player_test.tscn" id="1_yckwx"]
 [ext_resource type="PackedScene" uid="uid://cuj1bwhj2ejnu" path="res://objects/box.tscn" id="2_6rtw2"]
 [ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://assets/sprites/cat/cat_animation.tres" id="3_eamxg"]
@@ -33,6 +34,9 @@ texture_filter = 0
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_c05o1"]
 
 [node name="garage" type="Node3D"]
+
+[node name="music" parent="." instance=ExtResource("1_jxd24")]
+unique_name_in_owner = true
 
 [node name="player_test" parent="." instance=ExtResource("1_yckwx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.990112, 0.550172, 0.125488)
@@ -107,7 +111,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("3_eamxg")
 animation = &"idle"
-frame_progress = 0.411783
+frame_progress = 0.243919
 
 [node name="chair" parent="." instance=ExtResource("6_2u4oq")]
 transform = Transform3D(0.463435, 0, -0.886131, 0, 1, 0, 0.886131, 0, 0.463435, 0.829354, 0, -0.98226)
@@ -136,7 +140,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("3_eamxg")
 animation = &"sleep"
-frame_progress = 0.37002
+frame_progress = 0.202154
 
 [connection signal="ready" from="other cat2/CollisionPolygon3D/AnimatedSprite3D" to="other cat2/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["idle"]]
 [connection signal="ready" from="Interactables/other cat/CollisionPolygon3D/AnimatedSprite3D" to="Interactables/other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]

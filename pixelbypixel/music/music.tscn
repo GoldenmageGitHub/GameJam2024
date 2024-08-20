@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://drchciuyt0qhb"]
+
+[ext_resource type="AudioStream" uid="uid://bd5v5g2ut1shk" path="res://music/Level 1.mp3" id="1_g0sug"]
+[ext_resource type="AudioStream" uid="uid://dr8n3dhfpslkq" path="res://music/Level 2.mp3" id="2_hhqeo"]
+[ext_resource type="AudioStream" uid="uid://dk2a2dhsiuc80" path="res://music/Level 3.mp3" id="3_2itn5"]
+[ext_resource type="AudioStream" uid="uid://owfvf7tgmvcq" path="res://music/Level 4.mp3" id="4_50ywi"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_bovbm"]
+clip_count = 4
+clip_0/name = &"Level 1"
+clip_0/stream = ExtResource("1_g0sug")
+clip_0/auto_advance = 0
+clip_1/name = &"Level 2"
+clip_1/stream = ExtResource("2_hhqeo")
+clip_1/auto_advance = 0
+clip_2/name = &"Level 3"
+clip_2/stream = ExtResource("3_2itn5")
+clip_2/auto_advance = 0
+clip_3/name = &"Level 4"
+clip_3/stream = ExtResource("4_50ywi")
+clip_3/auto_advance = 0
+
+[node name="music" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamInteractive_bovbm")
+autoplay = true
