@@ -10,6 +10,8 @@ const SPEED = 2.0
 const JUMP_VELOCITY = 3.5
 
 var last_direction = false
+var near_shrink_ray = false
+var current_scale = 0
 
 func _physics_process(delta: float) -> void:
 	var scale_value = shape.scale.x
@@ -48,14 +50,17 @@ func _physics_process(delta: float) -> void:
 	for scale_index in [0,1,2,3,4,5,6,7]:
 		var scale_factor = pow(2, scale_index)
 		if Input.is_action_just_pressed("debug_scale_" + str(scale_factor)):
-			music.get_stream_playback().switch_to_clip(min(scale_index, 3))
-			create_tween().tween_property(shape, "scale", Vector3.ONE / scale_factor, 1)
-			break
+			change_size(scale_index)
+	
+	if Input.is_action_just_pressed("interact"):
+		change_size((current_scale + 1) % 4)
 	
 	sprite.flip_h = last_direction
 
 	move_and_slide()
 
-
-func _on_area_3d_area_entered(area):
-	pass # Replace with function body.
+func change_size(scale_index: int):
+	var scale_factor = pow(2, scale_index)
+	current_scale = scale_index
+	music.get_stream_playback().switch_to_clip(min(scale_index, 3))
+	create_tween().tween_property(shape, "scale", Vector3.ONE / scale_factor, 1)

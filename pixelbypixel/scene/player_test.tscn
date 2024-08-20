@@ -16,6 +16,7 @@ dof_blur_amount = 0.6
 
 [node name="player_test" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550172, 0)
+collision_layer = 3
 script = ExtResource("1_ilvjk")
 shrinking_slowdown = 0.75
 

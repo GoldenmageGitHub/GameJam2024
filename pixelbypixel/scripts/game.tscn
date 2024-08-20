@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dskwy5a5pteex"]
+[gd_scene load_steps=22 format=3 uid="uid://8r4g84kqhjjt"]
 
 [ext_resource type="Texture2D" uid="uid://ciumheciami12" path="res://assets/sprites/textures/brick2_texture.png" id="1_pynja"]
 [ext_resource type="Texture2D" uid="uid://x27tgapl14b5" path="res://assets/sprites/textures/stone_texture.png" id="2_5r4ji"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://dicplr8cexwgk" path="res://assets/sprites/shrink_ray/shrink_ray2.png" id="9_aeutc"]
 [ext_resource type="Texture2D" uid="uid://camme4hacqvid" path="res://assets/sprites/shrink_ray/button1.png" id="10_pkc15"]
 [ext_resource type="Texture2D" uid="uid://dtc0e80r1aop8" path="res://assets/sprites/shrink_ray/button2.png" id="11_udhua"]
-[ext_resource type="Script" path="res://scripts/area_3d.gd" id="12_4g16g"]
 [ext_resource type="PackedScene" uid="uid://drchciuyt0qhb" path="res://music/music.tscn" id="13_qfdqb"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_whoy1"]
@@ -61,9 +60,6 @@ animations = [{
 "name": &"default",
 "speed": 1.0
 }]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bydea"]
-size = Vector3(1, 2, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wqyd7"]
 radius = 0.2
@@ -326,7 +322,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("6_fb7q3")
 animation = &"sleep"
-frame_progress = 0.0813842
+frame_progress = 0.392269
 
 [node name="chair" parent="Objects" instance=ExtResource("7_x75cd")]
 transform = Transform3D(0.463435, 0, -0.886131, 0, 1, 0, 0.886131, 0, 0.463435, -0.218176, 0, 0.915506)
@@ -350,13 +346,6 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_uyti0")
 frame_progress = 0.0272611
 
-[node name="Area3D" type="Area3D" parent="Objects/Shrink Ray"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54232, 0.501723, 1.53139)
-script = ExtResource("12_4g16g")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Shrink Ray/Area3D"]
-shape = SubResource("BoxShape3D_bydea")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Shrink Ray"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81852, 0.975787, 1.56785)
 shape = SubResource("SphereShape3D_wqyd7")
@@ -365,4 +354,3 @@ shape = SubResource("SphereShape3D_wqyd7")
 unique_name_in_owner = true
 
 [connection signal="ready" from="Objects/other cat/CollisionPolygon3D/AnimatedSprite3D" to="Objects/other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]
-[connection signal="area_entered" from="Objects/Shrink Ray/Area3D" to="Objects/Shrink Ray/Area3D" method="_on_area_entered"]
