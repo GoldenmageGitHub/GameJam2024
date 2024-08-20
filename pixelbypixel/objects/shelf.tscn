@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cbjyuvt47krj2"]
 
-[ext_resource type="Material" uid="uid://cgju6xqexnx3h" path="res://textures/wood_procedural.tres" id="1_6mtlh"]
+[ext_resource type="Material" uid="uid://cgju6xqexnx3h" path="res://assets/sprites/textures/wood_procedural.tres" id="1_6mtlh"]
 
 [node name="shelf" type="CSGCombiner3D"]
 use_collision = true

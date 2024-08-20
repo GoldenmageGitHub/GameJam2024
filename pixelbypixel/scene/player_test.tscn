@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6hsgiq6g7u84"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ilvjk"]
-[ext_resource type="SpriteFrames" uid="uid://darukxxrlyxen" path="res://textures/rebeca/rebeca_frames.tres" id="2_2vue0"]
+[ext_resource type="SpriteFrames" uid="uid://darukxxrlyxen" path="res://assets/sprites/rebeca/rebeca_frames.tres" id="2_2vue0"]
 [ext_resource type="Script" path="res://scripts/scaling_camera_3d.gd" id="2_3xl01"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxvle"]

@@ -1,0 +1,294 @@
+[gd_scene load_steps=14 format=3 uid="uid://dskwy5a5pteex"]
+
+[ext_resource type="Texture2D" uid="uid://ciumheciami12" path="res://assets/sprites/textures/brick2_texture.png" id="1_pynja"]
+[ext_resource type="Texture2D" uid="uid://x27tgapl14b5" path="res://assets/sprites/textures/stone_texture.png" id="2_5r4ji"]
+[ext_resource type="PackedScene" uid="uid://b6hsgiq6g7u84" path="res://scene/player_test.tscn" id="3_3kahr"]
+[ext_resource type="PackedScene" uid="uid://dhcmrq8087igm" path="res://objects/table.tscn" id="4_sdpfa"]
+[ext_resource type="PackedScene" uid="uid://cbjyuvt47krj2" path="res://objects/shelf.tscn" id="5_1x6pt"]
+[ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://assets/sprites/cat/cat_animation.tres" id="6_fb7q3"]
+[ext_resource type="PackedScene" uid="uid://brcnxrl4du4rt" path="res://objects/chair.tscn" id="7_x75cd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_whoy1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1axtu"]
+albedo_texture = ExtResource("1_pynja")
+albedo_texture_force_srgb = true
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h78k5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2c0jp"]
+albedo_texture = ExtResource("2_5r4ji")
+albedo_texture_force_srgb = true
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2kiip"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vp2tn"]
+
+[node name="Game" type="Node"]
+
+[node name="Garage" type="Node3D" parent="."]
+
+[node name="Textures" type="Node" parent="Garage"]
+
+[node name="Wall" type="Node" parent="Garage/Textures"]
+
+[node name="Walltile" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, -0.5, 0.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile2" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 0.5, 0.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile3" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 1.5, 0.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile4" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 2.5, 0.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile5" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, -1.5, 0.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile6" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, -2.5, 0.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile7" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, -0.5, 1.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile8" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 0.5, 1.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile9" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 1.5, 1.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile10" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 2.5, 1.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile11" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, -1.5, 1.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile12" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, -2.5, 1.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile13" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, -0.5, 2.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile14" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 0.5, 2.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile15" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 1.5, 2.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile16" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 2.5, 2.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile17" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, -1.5, 2.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Walltile18" type="MeshInstance3D" parent="Garage/Textures/Wall"]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, -2.5, 2.5, 0)
+mesh = SubResource("PlaneMesh_whoy1")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1axtu")
+
+[node name="Floor" type="Node" parent="Garage/Textures"]
+
+[node name="Floortile" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.5, 0, 0.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile2" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.5, 0, 0.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile3" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2.5, 0, 0.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile4" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -0.5, 0, 0.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile5" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1.5, 0, 0.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile6" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2.5, 0, 0.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile7" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.5, 0, 1.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile8" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.5, 0, 1.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile9" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0.000876835, -0.000253457, -0.000438303, 1, 0.000235643, 0.000253655, -0.000470862, 0.5, 2.5, 0, 1.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile10" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -0.5, 0, 1.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile11" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1.5, 0, 1.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile12" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2.5, 0, 1.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile13" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0.5, 0, 2.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile14" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1.5, 0, 2.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile15" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 2.5, 0, 2.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile16" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -0.5, 0, 2.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile17" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -1.5, 0, 2.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="Floortile18" type="MeshInstance3D" parent="Garage/Textures/Floor"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2.5, 0, 2.5)
+mesh = SubResource("PlaneMesh_h78k5")
+surface_material_override/0 = SubResource("StandardMaterial3D_2c0jp")
+
+[node name="World Border" type="StaticBody3D" parent="Garage"]
+
+[node name="floor_collider" type="CollisionShape3D" parent="Garage/World Border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000751309, 0)
+shape = SubResource("WorldBoundaryShape3D_2kiip")
+
+[node name="front_collider" type="CollisionShape3D" parent="Garage/World Border"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 3)
+shape = SubResource("WorldBoundaryShape3D_vp2tn")
+
+[node name="back_collider" type="CollisionShape3D" parent="Garage/World Border"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_vp2tn")
+
+[node name="right_collider" type="CollisionShape3D" parent="Garage/World Border"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_vp2tn")
+
+[node name="left_collider" type="CollisionShape3D" parent="Garage/World Border"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -3, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_vp2tn")
+
+[node name="Light" type="DirectionalLight3D" parent="Garage"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4, 4)
+
+[node name="Player" parent="." instance=ExtResource("3_3kahr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550172, 1.51176)
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Table" parent="Objects" instance=ExtResource("4_sdpfa")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.02327, 0, 1.00002)
+
+[node name="shelf" parent="Objects" instance=ExtResource("5_1x6pt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23928, 0, 0.257494)
+
+[node name="other cat" type="RigidBody3D" parent="Objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39991, 2.36704, 0.402324)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Objects/other cat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110407, -0.00113237, 0.0815306)
+depth = 0.05
+polygon = PackedVector2Array(-0.243973, -0.0697063, -0.112375, -0.047356, 0.171591, 0.0178067, 0.351882, -0.0444375, 0.404873, -0.242745, -0.399898, -0.246225)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Objects/other cat/CollisionPolygon3D"]
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("6_fb7q3")
+animation = &"sleep"
+frame_progress = 0.962388
+
+[node name="chair" parent="." instance=ExtResource("7_x75cd")]
+transform = Transform3D(0.463435, 0, -0.886131, 0, 1, 0, 0.886131, 0, 0.463435, -0.218176, 0, 0.915506)
+
+[connection signal="ready" from="Objects/other cat/CollisionPolygon3D/AnimatedSprite3D" to="Objects/other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]

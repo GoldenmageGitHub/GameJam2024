@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b6hsgiq6g7u84" path="res://scene/player_test.tscn" id="1_pqegx"]
 [ext_resource type="PackedScene" uid="uid://cuj1bwhj2ejnu" path="res://objects/box.tscn" id="2_6gy5y"]
-[ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://textures/cat/cat_animation.tres" id="3_qck3b"]
+[ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://assets/sprites/cat/cat_animation.tres" id="3_qck3b"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tu3co"]
 
@@ -99,7 +99,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("3_qck3b")
 animation = &"sleep"
-frame_progress = 0.795613
+frame_progress = 0.448742
 
 [node name="other cat2" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15566, 0.861507, -0.248694)
@@ -115,7 +115,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("3_qck3b")
 animation = &"idle"
-frame_progress = 0.837365
+frame_progress = 0.490493
 
 [connection signal="ready" from="other cat/CollisionPolygon3D/AnimatedSprite3D" to="other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]
 [connection signal="ready" from="other cat2/CollisionPolygon3D/AnimatedSprite3D" to="other cat2/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["idle"]]

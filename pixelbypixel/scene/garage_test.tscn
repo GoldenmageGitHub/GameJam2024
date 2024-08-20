@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b6hsgiq6g7u84" path="res://scene/player_test.tscn" id="1_yckwx"]
 [ext_resource type="PackedScene" uid="uid://cuj1bwhj2ejnu" path="res://objects/box.tscn" id="2_6rtw2"]
-[ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://textures/cat/cat_animation.tres" id="3_eamxg"]
+[ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://assets/sprites/cat/cat_animation.tres" id="3_eamxg"]
 [ext_resource type="PackedScene" uid="uid://dhcmrq8087igm" path="res://objects/table.tscn" id="4_a8l5c"]
 [ext_resource type="PackedScene" uid="uid://cbjyuvt47krj2" path="res://objects/shelf.tscn" id="4_qrai1"]
 [ext_resource type="PackedScene" uid="uid://brcnxrl4du4rt" path="res://objects/chair.tscn" id="6_2u4oq"]
@@ -18,14 +18,14 @@ noise_type = 2
 frequency = 0.303
 cellular_distance_function = 1
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4oib7"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qae06"]
 width = 128
 height = 64
 color_ramp = SubResource("Gradient_q72xl")
 noise = SubResource("FastNoiseLite_aaycq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44ny6"]
-albedo_texture = SubResource("NoiseTexture2D_4oib7")
+albedo_texture = SubResource("NoiseTexture2D_qae06")
 texture_filter = 0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tu3co"]
@@ -40,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.990112, 0.550172, 0.125488)
 [node name="World Border" type="StaticBody3D" parent="."]
 
 [node name="floor" type="MeshInstance3D" parent="World Border"]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(2.98172, 0, 0, 0, 0.993908, 0, 0, 0, 1.49086, 0, 0, 0)
 mesh = SubResource("PlaneMesh_36h4h")
 surface_material_override/0 = SubResource("StandardMaterial3D_44ny6")
 
@@ -93,25 +93,6 @@ transform = Transform3D(0.363968, 0, 0.058476, 0, 0.121888, 0, -0.0901742, 0, 0.
 [node name="Table" parent="Objects" instance=ExtResource("4_a8l5c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.5)
 
-[node name="shelf" parent="Objects" instance=ExtResource("4_qrai1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23928, 0, -1.23416)
-
-[node name="other cat" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39991, 2.36704, -1.08933)
-
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="other cat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110407, -0.00113237, 0.0815306)
-depth = 0.05
-polygon = PackedVector2Array(-0.243973, -0.0697063, -0.112375, -0.047356, 0.171591, 0.0178067, 0.351882, -0.0444375, 0.404873, -0.242745, -0.399898, -0.246225)
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="other cat/CollisionPolygon3D"]
-shaded = true
-alpha_cut = 2
-texture_filter = 0
-sprite_frames = ExtResource("3_eamxg")
-animation = &"sleep"
-frame_progress = 0.312374
-
 [node name="other cat2" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15566, 0.861507, -0.248694)
 
@@ -126,7 +107,7 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("3_eamxg")
 animation = &"idle"
-frame_progress = 0.354137
+frame_progress = 0.411783
 
 [node name="chair" parent="." instance=ExtResource("6_2u4oq")]
 transform = Transform3D(0.463435, 0, -0.886131, 0, 1, 0, 0.886131, 0, 0.463435, 0.829354, 0, -0.98226)
@@ -136,5 +117,26 @@ follow_viewport_enabled = true
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("7_24ttp")]
 
-[connection signal="ready" from="other cat/CollisionPolygon3D/AnimatedSprite3D" to="other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]
+[node name="Interactables" type="Node" parent="."]
+
+[node name="shelf" parent="Interactables" instance=ExtResource("4_qrai1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23928, 0, -1.23416)
+
+[node name="other cat" type="RigidBody3D" parent="Interactables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39991, 2.36704, -1.08933)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Interactables/other cat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110407, -0.00113237, 0.0815306)
+depth = 0.05
+polygon = PackedVector2Array(-0.243973, -0.0697063, -0.112375, -0.047356, 0.171591, 0.0178067, 0.351882, -0.0444375, 0.404873, -0.242745, -0.399898, -0.246225)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Interactables/other cat/CollisionPolygon3D"]
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = ExtResource("3_eamxg")
+animation = &"sleep"
+frame_progress = 0.37002
+
 [connection signal="ready" from="other cat2/CollisionPolygon3D/AnimatedSprite3D" to="other cat2/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["idle"]]
+[connection signal="ready" from="Interactables/other cat/CollisionPolygon3D/AnimatedSprite3D" to="Interactables/other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]
