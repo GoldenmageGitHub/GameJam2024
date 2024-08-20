@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dskwy5a5pteex"]
+[gd_scene load_steps=22 format=3 uid="uid://dskwy5a5pteex"]
 
 [ext_resource type="Texture2D" uid="uid://ciumheciami12" path="res://assets/sprites/textures/brick2_texture.png" id="1_pynja"]
 [ext_resource type="Texture2D" uid="uid://x27tgapl14b5" path="res://assets/sprites/textures/stone_texture.png" id="2_5r4ji"]
@@ -8,6 +8,9 @@
 [ext_resource type="SpriteFrames" uid="uid://dbc6pxto6vlvk" path="res://assets/sprites/cat/cat_animation.tres" id="6_fb7q3"]
 [ext_resource type="PackedScene" uid="uid://brcnxrl4du4rt" path="res://objects/chair.tscn" id="7_x75cd"]
 [ext_resource type="Texture2D" uid="uid://14ggpf57j8kt" path="res://assets/sprites/shrink_ray/Shrink_ray.png" id="8_pe12j"]
+[ext_resource type="Texture2D" uid="uid://dicplr8cexwgk" path="res://assets/sprites/shrink_ray/shrink_ray2.png" id="9_aeutc"]
+[ext_resource type="Texture2D" uid="uid://camme4hacqvid" path="res://assets/sprites/shrink_ray/button1.png" id="10_pkc15"]
+[ext_resource type="Texture2D" uid="uid://dtc0e80r1aop8" path="res://assets/sprites/shrink_ray/button2.png" id="11_udhua"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_whoy1"]
 
@@ -28,6 +31,40 @@ texture_filter = 0
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2kiip"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vp2tn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ih5xw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_pe12j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_aeutc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uyti0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_pkc15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_udhua")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bydea"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wqyd7"]
+radius = 0.2
 
 [node name="Game" type="Node"]
 
@@ -287,15 +324,38 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = ExtResource("6_fb7q3")
 animation = &"sleep"
-frame_progress = 0.215636
+frame_progress = 0.95519
 
 [node name="chair" parent="Objects" instance=ExtResource("7_x75cd")]
 transform = Transform3D(0.463435, 0, -0.886131, 0, 1, 0, 0.886131, 0, 0.463435, -0.218176, 0, 0.915506)
 
 [node name="Shrink Ray" type="StaticBody3D" parent="Objects"]
 
-[node name="looking forward" type="Sprite3D" parent="Objects/Shrink Ray"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13523, 0.944961, 1.55906)
-texture = ExtResource("8_pe12j")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Objects/Shrink Ray"]
+transform = Transform3D(0.998461, 0, 0, 0, 0.998461, 0, 0, 0, 0.998461, -0.848039, 0.937185, 1.55904)
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_ih5xw")
+frame = 1
+frame_progress = 0.597552
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="Objects/Shrink Ray"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.747926, 0.845853, 1.66782)
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_uyti0")
+frame_progress = 0.465164
+
+[node name="Area3D" type="Area3D" parent="Objects/Shrink Ray"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54232, 0.501723, 1.53139)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Shrink Ray/Area3D"]
+shape = SubResource("BoxShape3D_bydea")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Shrink Ray"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81852, 0.975787, 1.56785)
+shape = SubResource("SphereShape3D_wqyd7")
 
 [connection signal="ready" from="Objects/other cat/CollisionPolygon3D/AnimatedSprite3D" to="Objects/other cat/CollisionPolygon3D/AnimatedSprite3D" method="play" binds= ["sleep"]]

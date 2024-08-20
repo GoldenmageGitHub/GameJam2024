@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dicplr8cexwgk"
-path.s3tc="res://.godot/imported/shrink_ray2.png-35d1f5fd3bd33064faf2893cc568d27b.s3tc.ctex"
+uid="uid://dtc0e80r1aop8"
+path.s3tc="res://.godot/imported/button2.png-fad940ef1430e7584149318f1922f3cc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/shrink_ray/shrink_ray2.png"
-dest_files=["res://.godot/imported/shrink_ray2.png-35d1f5fd3bd33064faf2893cc568d27b.s3tc.ctex"]
+source_file="res://assets/sprites/shrink_ray/button2.png"
+dest_files=["res://.godot/imported/button2.png-fad940ef1430e7584149318f1922f3cc.s3tc.ctex"]
 
 [params]
 
